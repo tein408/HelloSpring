@@ -11,7 +11,6 @@
     <title>$Title$</title>
   </head>
   <body>
-    <h1>${data}</h1>
-    <a href="index.do">main gogogogo</a>
+    <h2>ShoppingMain</h2>
   </body>
 </html>

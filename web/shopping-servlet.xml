@@ -6,6 +6,7 @@
        http://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <bean id="hello" name="/hello.do" class="controller.HelloController"></bean>
+    <bean id="index" name="/index.do" class="controller.ShoppingController"></bean>
 
     <bean id="viewResolver" class="org.springframework.web.servlet.view.UrlBasedViewResolver">
         <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"></property>

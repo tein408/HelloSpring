@@ -11,6 +11,7 @@
     <title>$Title$</title>
 </head>
 <body>
-    <a href="HelloPrint.do">hihihi</a>
+    <h1>index.jsp page</h1>
+
 </body>
 </html>
