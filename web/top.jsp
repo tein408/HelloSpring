@@ -9,7 +9,7 @@
     <table>
         <tr>
             <td>
-                <a href="ShoppingMain.jsp">main logo</a>
+                <a href="ShoppingMain.jsp">main</a>
             </td>
         </tr>
         <c:if test="${memberBean==null}">
