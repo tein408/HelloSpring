@@ -5,12 +5,12 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="hello" name="/hello.do" class="controller.HelloController"></bean>
-    <bean id="index" name="/index.do" class="controller.ShoppingController"></bean>
+    <bean id="hello" name="/hello.do" class="controller.HelloController"/>
+    <bean id="index" name="/index.do" class="controller.ShoppingController"/>
 
     <bean id="viewResolver" class="org.springframework.web.servlet.view.UrlBasedViewResolver">
-        <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"></property>
-        <property name="suffix" value=".jsp"></property>
+        <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
+        <property name="suffix" value=".jsp"/>
     </bean>
 
 </beans>
