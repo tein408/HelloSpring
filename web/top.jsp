@@ -37,7 +37,7 @@
     <table>
         <tr>
             <td>
-                <a href="menu1.do">메뉴1</a>
+                <a href="sumenu.do">메뉴1</a>
             </td>
             <td>
                 <a href="menu2.do">메뉴2</a>
