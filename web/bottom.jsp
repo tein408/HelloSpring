@@ -15,7 +15,7 @@
         <td>
             <p>
                 주소주소주소주소주소
-                tel : 000-0000-0000
+                tel : 000-0000-0000 <br>
                 <b>Copyright ⓒ 2020 Edition RIGHT RESERVED</b>
             </p>
         </td>
