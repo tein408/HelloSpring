@@ -6,8 +6,8 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/mvc https://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
-    <bean id="hello" name="/hello.do" class="controller.HelloController"/>
-    <bean id="index" name="/index.do" class="controller.ShoppingController"/>
+    <!--<bean id="hello" name="/hello.do" class="controller.HelloController"/>
+    <bean id="index" name="/index.do" class="controller.ShoppingController"/>-->
 
     <bean id="viewResolver" class="org.springframework.web.servlet.view.UrlBasedViewResolver">
         <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
