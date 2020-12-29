@@ -17,11 +17,10 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>dispatcher</servlet-name>
-        <url-pattern>*.do</url-pattern>
+        <url-pattern>/</url-pattern>
     </servlet-mapping>
 
-
-   <!-- &lt;!&ndash;한글 설정&ndash;&gt;
+    <!--한글 설정-->
     <filter>
         <filter-name>encodingFileter</filter-name>
         <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
@@ -31,10 +30,11 @@
         </init-param>
     </filter>
 
-    &lt;!&ndash;필터 네임이 처리하는 작업을 url과 매핑&ndash;&gt;
+    <!--필터 네임이 처리하는 작업을 url과 매핑-->
     <filter-mapping>
         <filter-name>encodingFileter</filter-name>
         <url-pattern>/*</url-pattern>
-    </filter-mapping>-->
+    </filter-mapping>
 
 </web-app>
+
