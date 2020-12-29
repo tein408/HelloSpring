@@ -11,7 +11,7 @@ public class SuBean {
     private int price;
     private Date date;
     private String temp;
-    private String cate;
+    private String category;
 
     public int getNo() {
         return no;
@@ -69,11 +69,11 @@ public class SuBean {
         this.temp = temp;
     }
 
-    public String getCate() {
-        return cate;
+    public String getCategory() {
+        return category;
     }
 
-    public void setCate(String cate) {
-        this.cate = cate;
+    public void setCategory(String cate) {
+        this.category = cate;
     }
 }
