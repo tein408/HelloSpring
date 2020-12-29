@@ -27,16 +27,16 @@ public class ShoppingController {
 
         if(memberBean==null){
             mav.addObject("memberBean", null);
-            mav.setViewName("ShoppingMain");
+            mav.setViewName("/views/ShoppingMain");
         }
         else {
             mav.addObject("memberBean", memberBean);
-            mav.setViewName("ShoppingMain");
+            mav.setViewName("/views/ShoppingMain");
         }
         return mav;
     }//index
 
-    @RequestMapping("/menu1.do")
+    @RequestMapping("sumenu.do")
     public ModelAndView menu1(String num){
         ModelAndView mav = new ModelAndView();
         if(num == null){
@@ -44,10 +44,15 @@ public class ShoppingController {
             mav.addObject("list",list);
         }
         else {
-
+            List<SuBean> list = shoppingDAO.getSelectSutool();
+            mav.addObject("list",list);
         }
+        mav.addObject("center","SuCenter.jsp");
+        mav.addObject("left","Suleft.jsp");
+        mav.setViewName("/views/ShoppingMain");
         return mav;
-    }//menu1
+    }//sumenu
+
 
 
 }//class

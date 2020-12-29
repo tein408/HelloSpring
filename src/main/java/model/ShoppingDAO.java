@@ -22,4 +22,8 @@ public class ShoppingDAO {
         return null;
     }//getAllSutool
 
+    public List<SuBean> getSelectSutool() {
+        return null;
+    }//getSelctSutool
+
 }//class
