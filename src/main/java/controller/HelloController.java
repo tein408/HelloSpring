@@ -12,7 +12,7 @@ public class HelloController {
 
         ModelAndView mav = new ModelAndView();
         mav.addObject("data",data);
-        mav.setViewName("/views/HelloPrint");
+        mav.setViewName("/HelloPrint");
 
         return mav;
 
