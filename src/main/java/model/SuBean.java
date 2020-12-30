@@ -13,6 +13,31 @@ public class SuBean {
     private String temp;
     private String category;
 
+    public SuBean() {}
+
+    public SuBean(int no, String name, String info, String img,
+                  int price, Date date, String temp, String category) {
+        this.no = no;
+        this.name = name;
+        this.info = info;
+        this.img = img;
+        this.price = price;
+        this.date = date;
+        this.temp = temp;
+        this.category = category;
+    }
+
+    public SuBean(int no, String name, String info, String img,
+                  int price, Date date, String category) {
+        this.no = no;
+        this.name = name;
+        this.info = info;
+        this.img = img;
+        this.price = price;
+        this.date = date;
+        this.category = category;
+    }
+
     public int getNo() {
         return no;
     }
@@ -76,4 +101,5 @@ public class SuBean {
     public void setCategory(String cate) {
         this.category = cate;
     }
+
 }
