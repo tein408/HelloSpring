@@ -13,6 +13,9 @@ public class ShoppingDAO {
     JdbcTemplate template;
     DataSource dataSource;
 
+    public ShoppingDAO(DataSource dataSource) {
+    }
+
     public void setDataSource(DataSource dataSource){
         this.dataSource=dataSource;
         template = new JdbcTemplate(dataSource);
