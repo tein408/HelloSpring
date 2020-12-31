@@ -9,7 +9,7 @@
     <table>
         <tr>
             <td>
-                <a href="index.jsp">main</a>
+                <a href="../index.jsp">main</a>
             </td>
         </tr>
         <c:if test="${memberBean==null}">
