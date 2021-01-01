@@ -36,7 +36,7 @@ public class ShoppingController {
         return mav;
     }//index
 
-    @RequestMapping("sumenu.do")
+    @RequestMapping("/views/sumenu.do")
     public ModelAndView menu1(String num){
         ModelAndView mav = new ModelAndView();
         if(num == null){
