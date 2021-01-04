@@ -1,16 +1,16 @@
 package Test;
 
+import config.ShoppingDaoConfig;
 import model.ShoppingDAO;
 import org.apache.log4j.Logger;
+import org.apache.tomcat.jdbc.pool.DataSource;
 import org.junit.Test;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import javax.inject.Inject;
-import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.DriverManager;
 
-/*@RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = {"classpath:../../web/WEB-INF/dispatcher-servlet.xml"})*/
 public class ShoppingTest {
 
     private Logger logger = Logger.getLogger(ShoppingTest.class);
@@ -38,17 +38,6 @@ public class ShoppingTest {
     private Logger logger2 = Logger.getLogger(ShoppingDAO.class);
 
     @Test
-    public void test2() {
-        logger2.debug("dao connect test");
-        shoppingDAO = new ShoppingDAO(dataSource);
-        try {
-            logger2.debug(shoppingDAO.getAllSutool());
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }//test2()
-
-    @Test
     public void dataSourceConnectionTest() throws Exception {
         try {
             Connection conn = (Connection) dataSource.getConnection();
@@ -57,6 +46,22 @@ public class ShoppingTest {
             e.printStackTrace();
         }
     }//dataSourceConnectionTest
+
+    @Test
+    public void test2() {
+        logger2.debug("dao connect test");
+        AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(ShoppingDaoConfig.class);
+        shoppingDAO = ctx.getBean(ShoppingDAO.class);
+        try {
+            //logger2.debug(shoppingDAO.getAllSutool());
+            logger2.debug(shoppingDAO.getAllSutool().get(0).toString());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        ctx.close();
+    }//test2()
+
+
 
 
 
