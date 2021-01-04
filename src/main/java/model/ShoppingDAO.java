@@ -1,29 +1,39 @@
 package model;
 
 
+import org.apache.tomcat.jdbc.pool.DataSource;
+import org.springframework.context.annotation.Bean;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
-import javax.sql.DataSource;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.List;
 
-@Repository
 public class ShoppingDAO {
 
-    JdbcTemplate template;
-    DataSource dataSource;
+    JdbcTemplate jdbcTemplate;
 
     public ShoppingDAO(DataSource dataSource) {
+       this.jdbcTemplate = new JdbcTemplate(dataSource);
     }
 
-    public void setDataSource(DataSource dataSource){
-        this.dataSource=dataSource;
-        template = new JdbcTemplate(dataSource);
-    }//setDataSource
-
     public List<SuBean> getAllSutool() {
-        return null;
+        List<SuBean> list = jdbcTemplate.query("select * from sumenu",
+                new RowMapper<SuBean>(){
+                    @Override
+                    public SuBean mapRow(ResultSet rs, int rowNum) throws SQLException {
+                        SuBean suBean = new SuBean(
+                                rs.getInt("no"), rs.getString("name"),
+                                rs.getString("info"), rs.getString("img"),
+                                rs.getInt("price"), rs.getDate("date"),
+                                rs.getString("category"));
+                        return suBean;
+                    }});
+            return list;
     }//getAllSutool
+
 
     public List<SuBean> getSelectSutool() {
         return null;
