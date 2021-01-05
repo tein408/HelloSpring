@@ -23,7 +23,7 @@ public class ShoppingService {
     }
 
 
-
-
-
+    public List<SuBean> getSutoolInfo(int num) {
+        return shoppingDAO.getSutoolInfo(num);
+    }
 }
