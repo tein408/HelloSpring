@@ -57,14 +57,16 @@ public class ShoppingController {
         return mav;
     }//sumenu
 
-    @RequestMapping("/SuMenu/suinfo.do")
-    public ModelAndView info(String num){
+    @RequestMapping(value = "/SuMenu/suinfo.do", params = "suno")
+    public ModelAndView info(int suno){
         ModelAndView mav = new ModelAndView();
-        if(num != null){
-            List<SuBean> list = shoppingService.getSutoolInfo(Integer.parseInt(num));
+        if(suno != 0){
+            List<SuBean> list = shoppingService.getSutoolInfo(suno);
             mav.addObject("list",list);
         }
-        mav.setViewName("/SuMenu/suinfo");
+        mav.addObject("center","suinfo.jsp");
+        mav.addObject("left","Suleft.jsp");
+        mav.setViewName("/SuMenu/ShoppingMain");
         return mav;
     }//info
 
