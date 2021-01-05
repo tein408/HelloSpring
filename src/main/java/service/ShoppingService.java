@@ -18,6 +18,10 @@ public class ShoppingService {
         return shoppingDAO.getAllSutool();
     }
 
+    public List<SuBean> getSelectSutool(int no){
+        return shoppingDAO.getSelectSutool(no);
+    }
+
 
 
 
