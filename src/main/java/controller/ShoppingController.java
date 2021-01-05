@@ -48,7 +48,7 @@ public class ShoppingController {
             mav.addObject("list",list);
         }
         else {
-            List<SuBean> list = shoppingDAO.getSelectSutool();
+            List<SuBean> list = shoppingDAO.getSelectSutool(Integer.parseInt(num));
             mav.addObject("list",list);
         }
         mav.addObject("center","SuCenter.jsp");
