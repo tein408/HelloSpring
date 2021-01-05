@@ -9,7 +9,7 @@
     <table>
         <tr>
             <td>
-                <a href="../index.jsp">main</a>
+                <a href="../main/index.do">main</a>
             </td>
         </tr>
         <c:if test="${memberBean==null}">
@@ -37,7 +37,7 @@
     <table>
         <tr>
             <td>
-                <a href="/views/sumenu.do">메뉴1</a>
+                <a href="/SuMenu/sumenu.do">메뉴1</a>
             </td>
             <td>
                 <a href="menu2.do">메뉴2</a>
