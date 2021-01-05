@@ -49,12 +49,24 @@ public class ShoppingTest {
 
     @Test
     public void test2() {
-        logger2.debug("dao connect test");
         AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(ShoppingDaoConfig.class);
         shoppingDAO = ctx.getBean(ShoppingDAO.class);
         try {
             //logger2.debug(shoppingDAO.getAllSutool());
             logger2.debug(shoppingDAO.getAllSutool().get(0).toString());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        ctx.close();
+    }//test2()
+
+
+    @Test
+    public void test3() {
+        AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(ShoppingDaoConfig.class);
+        shoppingDAO = ctx.getBean(ShoppingDAO.class);
+        try {
+            logger2.debug(shoppingDAO.getSelectSutool(1));
         } catch (Exception e) {
             e.printStackTrace();
         }
