@@ -47,6 +47,14 @@ public class SuBean {
         this.date = date;
     }
 
+    public SuBean(String name, String info, String img, int price, Date date) {
+        this.name = name;
+        this.info = info;
+        this.img = img;
+        this.price = price;
+        this.date = date;
+    }
+
     public int getNo() {
         return no;
     }
