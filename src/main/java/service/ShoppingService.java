@@ -1,8 +1,22 @@
 package service;
 
 
+import model.ShoppingDAO;
+import model.SuBean;
+
+import java.util.List;
+
 public class ShoppingService {
 
+    ShoppingDAO shoppingDAO;
+
+    public ShoppingService(ShoppingDAO shoppingDAO){
+        this.shoppingDAO = shoppingDAO;
+    }
+
+    public List<SuBean> getAllSutool(){
+        return shoppingDAO.getAllSutool();
+    }
 
 
 
