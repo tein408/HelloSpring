@@ -3,9 +3,11 @@ package controller;
 import model.MemberBean;
 import model.ShoppingDAO;
 import model.SuBean;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
+import service.ShoppingService;
 
 import javax.servlet.http.HttpSession;
 import java.util.List;
@@ -14,12 +16,14 @@ import java.util.List;
 public class ShoppingController {
 
     ShoppingDAO shoppingDAO;
+    ShoppingService shoppingService;
 
-    public void setShoppingDAO(ShoppingDAO shoppingDAO){
-        this.shoppingDAO=shoppingDAO;
+    @Autowired
+    public void shoppingService(ShoppingService shoppingService){
+        this.shoppingService=shoppingService;
     }//setShoppingDAO
 
-    @RequestMapping("index.do")
+    @RequestMapping("/main/index.do")
     public ModelAndView index(HttpSession session){
 
         ModelAndView mav = new ModelAndView();
@@ -27,20 +31,20 @@ public class ShoppingController {
 
         if(memberBean==null){
             mav.addObject("memberBean", null);
-            mav.setViewName("/views/ShoppingMain");
+            mav.setViewName("SuMenu/ShoppingMain");
         }
         else {
             mav.addObject("memberBean", memberBean);
-            mav.setViewName("/views/ShoppingMain");
+            mav.setViewName("SuMenu/ShoppingMain");
         }
         return mav;
     }//index
 
-    @RequestMapping("/views/sumenu.do")
+    @RequestMapping("/SuMenu/sumenu.do")
     public ModelAndView menu1(String num){
         ModelAndView mav = new ModelAndView();
         if(num == null){
-            List<SuBean> list = shoppingDAO.getAllSutool();
+            List<SuBean> list = shoppingService.getAllSutool();
             mav.addObject("list",list);
         }
         else {
@@ -49,7 +53,7 @@ public class ShoppingController {
         }
         mav.addObject("center","SuCenter.jsp");
         mav.addObject("left","Suleft.jsp");
-        mav.setViewName("/views/ShoppingMain");
+        mav.setViewName("/SuMenu/ShoppingMain");
         return mav;
     }//sumenu
 
