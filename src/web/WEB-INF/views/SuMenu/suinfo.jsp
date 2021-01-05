@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
@@ -6,9 +7,10 @@
 </head>
 <body>
     <h2>product Info</h2>
-
+    <c:forEach var="list" items="${list}">
     <form action="sutoolbuy.do" method="post">
         <table>
+
             <tr>
                 <td>
                     <span>file : ${list.img}</span>
@@ -46,6 +48,7 @@
                     <input type="submit" value="구매">
                 </td>
             </tr>
+
         </table>
     </form>
 
@@ -54,7 +57,7 @@
     <b>상세 보기</b>
     <p>${list.info}</p>
 </p>
-
+    </c:forEach>
 
 </body>
 </html>
