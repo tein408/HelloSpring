@@ -38,6 +38,15 @@ public class SuBean {
         this.category = category;
     }
 
+    public SuBean(int no, String name, String info, String img, int price, Date date) {
+        this.no = no;
+        this.name = name;
+        this.info = info;
+        this.img = img;
+        this.price = price;
+        this.date = date;
+    }
+
     public int getNo() {
         return no;
     }
