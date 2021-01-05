@@ -2,6 +2,7 @@ package Test;
 
 import config.ShoppingDaoConfig;
 import model.ShoppingDAO;
+import model.SuBean;
 import org.apache.log4j.Logger;
 import org.apache.tomcat.jdbc.pool.DataSource;
 import org.junit.Test;
@@ -10,6 +11,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import javax.inject.Inject;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.util.List;
 
 public class ShoppingTest {
 
@@ -78,7 +80,12 @@ public class ShoppingTest {
         AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(ShoppingDaoConfig.class);
         shoppingDAO = ctx.getBean(ShoppingDAO.class);
         try {
+            List<SuBean> list = shoppingDAO.getSutoolInfo(1);
             logger2.debug(shoppingDAO.getSutoolInfo(1));
+            logger2.debug("test---------");
+            for(int i =0; i<list.size(); i++){
+                logger2.debug(list.get(i).getInfo());
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }
