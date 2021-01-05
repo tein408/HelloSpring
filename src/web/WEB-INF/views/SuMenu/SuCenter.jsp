@@ -13,7 +13,7 @@
                 <tr>
             </c:if>
                     <td>
-                        <a href="suinfo.do?suno=${list.no}">no.${list.no}</a>
+                        <a href="/SuMenu/suinfo.do?suno=${list.no}">no.${list.no}</a>
                         <p>제품명 : ${list.name}<br>
                         금액 : ${list.price} 원</p>
                     </td>
