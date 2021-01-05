@@ -1,9 +1,11 @@
 package config;
 
+import controller.ShoppingController;
 import model.ShoppingDAO;
 import org.apache.tomcat.jdbc.pool.DataSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import service.ShoppingService;
 
 
 @Configuration
@@ -22,6 +24,11 @@ public class ShoppingDaoConfig {
     @Bean
     public ShoppingDAO shoppingDAO(){
         return new ShoppingDAO(dataSource());
+    }
+
+    @Bean
+    public ShoppingService shoppingService(){
+        return new ShoppingService(shoppingDAO());
     }
 
 }
