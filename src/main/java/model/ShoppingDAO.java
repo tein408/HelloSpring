@@ -34,7 +34,6 @@ public class ShoppingDAO {
             return list;
     }//getAllSutool
 
-
     public List<SuBean> getSelectSutool(int num) {
         List<SuBean> list = jdbcTemplate.query("select * from sumenu where category=?",
                 new RowMapper<SuBean>(){
@@ -50,5 +49,22 @@ public class ShoppingDAO {
                     }},num);
         return list;
     }//getSelctSutool
+
+    public List<SuBean> getSutoolInfo(int num) {
+        List<SuBean> list = jdbcTemplate.query("select * from sumenu where no=?",
+                new RowMapper<SuBean>(){
+                    @Override
+                    public SuBean mapRow(ResultSet rs, int rowNum) throws SQLException {
+                        SuBean suBean = new SuBean(
+                                rs.getString("name"),
+                                rs.getString("info"), rs.getString("img"),
+                                rs.getInt("price"), rs.getDate("date")
+                        );
+                        suBean.setCategory(rs.getString("no"));
+                        return suBean;
+                    }},num);
+        return list;
+    }//getSutoolInfo
+
 
 }//class
