@@ -12,8 +12,14 @@
     </script>
 </c:if>
 
+<c:if test="${result==2}">
+    <script type="text/javascript">
+        alert("비밀번호 일치 하지 않음");
+    </script>
+</c:if>
+
     <h2>Join US</h2>
-    <form action="joinPro.do" method="post">
+    <form action="/login/joinPro.do" method="post">
        <label for="id">아이디</label> <input type="text" name="id" id="id"><br>
        <label for="pwd">비밀번호</label><input type="password" name="pwd" id="pwd"><br>
        <label for="pwd2">비밀번호 확인</label><input type="password" name="pwd2" id="pwd2"><br>
