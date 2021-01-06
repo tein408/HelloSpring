@@ -87,6 +87,18 @@ public class ShoppingController {
         return mav;
     }//sutoolcart()
 
+    @RequestMapping(value = "/SuMenu/sucartdel.do", method = RequestMethod.GET)
+    public ModelAndView sucartDel(int no, HttpSession session){
+        Cart cart = (Cart) session.getAttribute("cart");
+        ModelAndView mav = new ModelAndView();
+        cart.deleteCart(no);
+        mav.addObject("cart",cart);
+        mav.addObject("center","SuCartResult.jsp");
+        mav.addObject("left","Suleft.jsp");
+        mav.setViewName("/SuMenu/ShoppingMain");
+        return mav;
+    }//sucartDel()
+
 
 
 }//class
