@@ -78,7 +78,7 @@ public class ShoppingDAO {
     }//getLogin()
 
     public void insertMember(MemberBean memberBean) {
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
         Date date = new Date(System.currentTimeMillis());
         jdbcTemplate.update("insert into member (id, pwd, pwd2, name, phone, regdate) " +
                         "values (?,?,?,?,?,?)",
