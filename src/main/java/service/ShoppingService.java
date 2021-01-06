@@ -1,6 +1,7 @@
 package service;
 
 
+import model.MemberBean;
 import model.ShoppingDAO;
 import model.SuBean;
 
@@ -25,5 +26,9 @@ public class ShoppingService {
 
     public List<SuBean> getSutoolInfo(int num) {
         return shoppingDAO.getSutoolInfo(num);
+    }
+
+    public int getLogin(MemberBean memberBean) {
+        return shoppingDAO.getLogin();
     }
 }
