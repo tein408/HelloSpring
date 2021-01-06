@@ -1,6 +1,7 @@
 package Test;
 
 import config.ShoppingDaoConfig;
+import model.MemberBean;
 import model.ShoppingDAO;
 import model.SuBean;
 import org.apache.log4j.Logger;
@@ -27,6 +28,8 @@ public class ShoppingTest {
 
     ShoppingDAO shoppingDAO;
 
+    private Logger logger2 = Logger.getLogger(ShoppingDAO.class);
+
     @Test
     public void test() throws ClassNotFoundException{
         Class.forName(DRIVER);
@@ -36,8 +39,6 @@ public class ShoppingTest {
             e.printStackTrace();
         }
     }//test
-
-    private Logger logger2 = Logger.getLogger(ShoppingDAO.class);
 
     @Test
     public void dataSourceConnectionTest() throws Exception {
@@ -73,7 +74,7 @@ public class ShoppingTest {
             e.printStackTrace();
         }
         ctx.close();
-    }//test2()
+    }//test3()
 
     @Test
     public void test4() {
@@ -90,7 +91,30 @@ public class ShoppingTest {
             e.printStackTrace();
         }
         ctx.close();
-    }//test2()
+    }//test4()
+
+    @Test
+    public void test5() {
+        AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(ShoppingDaoConfig.class);
+        shoppingDAO = ctx.getBean(ShoppingDAO.class);
+        try {
+            MemberBean memberBean = new MemberBean();
+            memberBean.setId("testId");
+            memberBean.setPwd("testPwd");
+            memberBean.setPwd2("testPwd2");
+            memberBean.setPhone("testPhone");
+            memberBean.setName("testName");
+            Integer count = shoppingDAO.getLogin(memberBean);
+            logger2.debug(shoppingDAO.getLogin(memberBean));
+            logger2.debug("test---------");
+            logger2.debug("count: "+count);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        ctx.close();
+    }//test5()
+
+
 
 
 
