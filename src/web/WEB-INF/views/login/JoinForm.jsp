@@ -1,10 +1,17 @@
-
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
     <title>JoinForm</title>
 </head>
 <body>
+
+<c:if test="${result==1}">
+    <script type="text/javascript">
+        alert("이미 존재하는 아이디");
+    </script>
+</c:if>
+
     <h2>Join US</h2>
     <form action="joinPro.do" method="post">
        <label for="id">아이디</label> <input type="text" name="id" id="id"><br>
