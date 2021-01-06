@@ -133,6 +133,15 @@ public class ShoppingController {
         return mav;
     }//joinPro()
 
+    @RequestMapping("/login/login.do")
+    public ModelAndView login(){
+        ModelAndView mav = new ModelAndView();
+        mav.addObject("center","../login/loginForm.jsp");
+        mav.addObject("left","Suleft.jsp");
+        mav.setViewName("/SuMenu/ShoppingMain");
+        return mav;
+    }//login()
+
 
 
 }//class
