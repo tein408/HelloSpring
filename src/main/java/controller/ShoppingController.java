@@ -158,6 +158,13 @@ public class ShoppingController {
         }
     }//loginPro()
 
+    @RequestMapping("/login/logout.do")
+    public ModelAndView logout(HttpSession session){
+        MemberBean memberBean = (MemberBean) session.getAttribute("memberBean");
+        session.setAttribute("memberBean", null);
+        return new ModelAndView(new RedirectView("/main/index.do"));
+    }//logout()
+
 
 
 }//class
