@@ -66,5 +66,15 @@ public class ShoppingDAO {
         return list;
     }//getSutoolInfo
 
+    public int getLogin(MemberBean memberBean) {
+        Integer count = jdbcTemplate.queryForObject("select count(*) from member where id=?",
+                new RowMapper<Integer>() {
+                    @Override
+                    public Integer mapRow(ResultSet resultSet, int i) throws SQLException {
+                        return resultSet.getInt(1);
+                    }
+                },memberBean.getId());
+        return count;
+    }//getLogin()
 
 }//class
