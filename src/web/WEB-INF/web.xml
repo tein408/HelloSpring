@@ -8,7 +8,7 @@
     <display-name>Spring MVC</display-name>
     <absolute-ordering/>
     <welcome-file-list>
-        <welcome-file>index.jsp</welcome-file>
+        <welcome-file>/WEB-INF/views/main/index.jsp</welcome-file>
     </welcome-file-list>
 
     <servlet>
