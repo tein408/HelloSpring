@@ -5,6 +5,22 @@
 <head>
     <title>SuInfo</title>
 </head>
+<script type="text/javascript">
+    function cart() {
+        var optid = document.getElementById("optid").value;
+        var noid = document.getElementById("noid").value;
+        var img = document.getElementById("img").value;
+        var price = document.getElementById("price").value;
+        var name = document.getElementById("name").value;
+
+        var url = "sutoolcart.do?suno="+noid+"&img="
+            +img+"&price="+price+"&name="+name+"&optid="+optid;
+        location.href=url;
+    }
+
+
+</script>
+
 <body>
     <h2>product Info</h2>
 
@@ -30,7 +46,7 @@
                 <tr>
                     <td>구매 수량</td>
                     <td>
-                        <select>
+                        <select name="optid" id="optid">
                             <option value="10">10</option>
                             <option value="20">20</option>
                             <option value="30">30</option>
@@ -45,7 +61,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <input type="hidden" name="no" id="no" value="${list.no}">
+                        <input type="hidden" name="no" id="noid" value="${list.no}">
                         <input type="hidden" name="img" id="img" value="${list.img}">
                         <input type="hidden" name="price" id="price" value="${list.price}">
                         <input type="hidden" name="name" id="name" value="${list.name}">
