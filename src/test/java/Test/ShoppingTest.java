@@ -114,6 +114,24 @@ public class ShoppingTest {
         ctx.close();
     }//test5()
 
+    @Test
+    public void test6() {
+        AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(ShoppingDaoConfig.class);
+        shoppingDAO = ctx.getBean(ShoppingDAO.class);
+        try {
+            MemberBean memberBean = new MemberBean();
+            memberBean.setId("a");
+            memberBean.setPwd("a");
+            Integer count = shoppingDAO.getLoginPro(memberBean);
+            logger2.debug(shoppingDAO.getLoginPro(memberBean));
+            logger2.debug("test---------");
+            logger2.debug("count: "+count);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        ctx.close();
+    }//test6()
+
 
 
 
