@@ -60,7 +60,7 @@ public class ShoppingDAO {
                                 rs.getString("info"), rs.getString("img"),
                                 rs.getInt("price"), rs.getDate("date")
                         );
-                        suBean.setCategory(rs.getString("no"));
+                        suBean.setNo(rs.getInt("no"));
                         return suBean;
                     }},num);
         return list;
