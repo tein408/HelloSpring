@@ -60,10 +60,6 @@
                     <td>${list.price} 원</td>
                 </tr>
                 <tr>
-                    <td>test</td>
-                    <td>${list.no}</td>
-                </tr>
-                <tr>
                     <td>
                         <input type="hidden" name="noid" id="noid" value="${list.no}">
                         <input type="hidden" name="img" id="img" value="${list.img}">
