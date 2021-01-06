@@ -4,8 +4,19 @@ public class SuCartBean {
     private int no;
     private String name;
     private String img;
-    private String optid;
+    private int optid;
     private int price;
+
+    @Override
+    public String toString() {
+        return "SuCartBean{" +
+                "no=" + no +
+                ", name='" + name + '\'' +
+                ", img='" + img + '\'' +
+                ", optid='" + optid + '\'' +
+                ", price=" + price +
+                '}';
+    }
 
     public int getNo() {
         return no;
@@ -31,11 +42,11 @@ public class SuCartBean {
         this.img = img;
     }
 
-    public String getOptid() {
+    public int getOptid() {
         return optid;
     }
 
-    public void setOptid(String optid) {
+    public void setOptid(int optid) {
         this.optid = optid;
     }
 
