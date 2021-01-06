@@ -13,7 +13,7 @@
         var price = document.getElementById("price").value;
         var name = document.getElementById("name").value;
 
-        var url = "sutoolcart.do?suno="+noid+"&img="
+        var url = "/SuMenu/sutoolcart.do?no="+noid+"&img="
             +img+"&price="+price+"&name="+name+"&optid="+optid;
         location.href=url;
     }
@@ -24,7 +24,7 @@
 <body>
     <h2>product Info</h2>
 
-    <form action="sutoolbuy.do" method="post">
+    <form action="/SuMenu/sutoolbuy.do" method="post">
         <table>
             <c:forEach var="list" items="${list}">
                 <tr>
@@ -60,8 +60,12 @@
                     <td>${list.price} 원</td>
                 </tr>
                 <tr>
+                    <td>test</td>
+                    <td>${list.no}</td>
+                </tr>
+                <tr>
                     <td>
-                        <input type="hidden" name="no" id="noid" value="${list.no}">
+                        <input type="hidden" name="noid" id="noid" value="${list.no}">
                         <input type="hidden" name="img" id="img" value="${list.img}">
                         <input type="hidden" name="price" id="price" value="${list.price}">
                         <input type="hidden" name="name" id="name" value="${list.name}">
