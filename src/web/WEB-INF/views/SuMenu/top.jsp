@@ -21,7 +21,7 @@
         <c:if test="${memberBean!=null}">
             <td>
                 <br>${memberBean.id} 님 반갑습니다.<br>
-                <input type="button" onclick=location.href="'logout.do'" value="logout">
+                <input type="button" onclick="location.href='../login/logout.do'" value="logout">
             </td>
         </c:if>
 
