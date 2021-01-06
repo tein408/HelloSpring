@@ -2,13 +2,13 @@ package model;
 
 
 import org.apache.tomcat.jdbc.pool.DataSource;
-import org.springframework.context.annotation.Bean;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
-import org.springframework.stereotype.Repository;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 public class ShoppingDAO {
@@ -76,5 +76,14 @@ public class ShoppingDAO {
                 },memberBean.getId());
         return count;
     }//getLogin()
+
+    public void insertMember(MemberBean memberBean) {
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        Date date = new Date(System.currentTimeMillis());
+        jdbcTemplate.update("insert into member (id, pwd, pwd2, name, phone, regdate) " +
+                        "values (?,?,?,?,?,?)",
+                memberBean.getId(), memberBean.getPwd(),memberBean.getPwd2(), memberBean.getName(),
+                memberBean.getPhone(), simpleDateFormat.format(date));
+    }//insertMember()
 
 }//class
