@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.view.RedirectView;
 import service.ShoppingService;
 
 import javax.servlet.http.HttpSession;
@@ -108,7 +109,29 @@ public class ShoppingController {
         return mav;
     }//joinForm()
 
-
+    @RequestMapping("/login/joinPro.do")
+    public ModelAndView joinPro(MemberBean memberBean, HttpSession session){
+        ModelAndView mav = new ModelAndView();
+        int result = shoppingService.getLogin(memberBean);
+        if(result==1){
+            mav.addObject("result","1");
+            mav.addObject("center","../login/JoinForm.jsp");
+            mav.addObject("left","Suleft.jsp");
+            mav.setViewName("/SuMenu/ShoppingMain");
+        }else{
+            if(memberBean.getPwd().equals(memberBean.getPwd2())){
+                shoppingService.insertMember(memberBean);
+                session.setAttribute("memberBean",memberBean);
+                return new ModelAndView(new RedirectView("/main/index.do"));
+            }else{
+                mav.addObject("result","2");
+                mav.addObject("center","../login/JoinForm.jsp");
+                mav.addObject("left","Suleft.jsp");
+                mav.setViewName("/SuMenu/ShoppingMain");
+            }
+        }
+        return mav;
+    }//joinPro()
 
 
 
