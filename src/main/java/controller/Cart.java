@@ -27,4 +27,14 @@ public class Cart {
         }
     }//push
 
+    public void deleteCart(int num) {
+        for(SuCartBean suCartBean : itemlist){
+            if(suCartBean.getNo()==num){
+                itemlist.remove(suCartBean);
+                break;
+            }
+        }//for
+    }//deleteCart
+
+
 }//class
