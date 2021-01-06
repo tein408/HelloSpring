@@ -86,4 +86,16 @@ public class ShoppingDAO {
                 memberBean.getPhone(), simpleDateFormat.format(date));
     }//insertMember()
 
+    public int getLoginPro(MemberBean memberBean) {
+        Integer count = jdbcTemplate.queryForObject("select count(*) from member " +
+                        "where id=? and pwd=?",
+                new RowMapper<Integer>() {
+                    @Override
+                    public Integer mapRow(ResultSet resultSet, int i) throws SQLException {
+                        return resultSet.getInt(1);
+                    }
+                },memberBean.getId(), memberBean.getPwd());
+        return count;
+    }//getLoginPro
+
 }//class
