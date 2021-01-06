@@ -14,8 +14,8 @@
         </tr>
         <c:if test="${memberBean==null}">
             <td>
-                <input type="button" onclick="location.href='login.do'" value="login"> |
-                <input type="button" onclick="location.href='joinUs.do'" value="joinUs">
+                <input type="button" onclick="location.href='../login/login.do'" value="login"> |
+                <input type="button" onclick="location.href='../login/joinUs.do'" value="joinUs">
             </td>
         </c:if>
         <c:if test="${memberBean!=null}">
