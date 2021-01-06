@@ -29,6 +29,6 @@ public class ShoppingService {
     }
 
     public int getLogin(MemberBean memberBean) {
-        return shoppingDAO.getLogin();
+        return shoppingDAO.getLogin(memberBean);
     }
 }
