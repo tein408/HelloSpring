@@ -142,6 +142,22 @@ public class ShoppingController {
         return mav;
     }//login()
 
+    @RequestMapping("/login/loginPro.do")
+    public ModelAndView loginPro(MemberBean memberBean, HttpSession session){
+        ModelAndView mav = new ModelAndView();
+        int result = shoppingService.getLoginPro(memberBean);
+        if(result==1){
+            session.setAttribute("memberBean", memberBean);
+            return new ModelAndView(new RedirectView("/main/index.do"));
+        } else {
+            mav.addObject("center","../login/loginForm.jsp");
+            mav.addObject("left","Suleft.jsp");
+            mav.setViewName("/SuMenu/ShoppingMain");
+            mav.addObject("login","1");
+            return mav;
+        }
+    }//loginPro()
+
 
 
 }//class
