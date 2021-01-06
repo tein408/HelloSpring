@@ -99,6 +99,17 @@ public class ShoppingController {
         return mav;
     }//sucartDel()
 
+    @RequestMapping("/login/joinUs.do")
+    public ModelAndView joinForm(){
+        ModelAndView mav = new ModelAndView();
+        mav.addObject("center","../login/JoinForm.jsp");
+        mav.addObject("left","Suleft.jsp");
+        mav.setViewName("/SuMenu/ShoppingMain");
+        return mav;
+    }//joinForm()
+
+
+
 
 
 }//class
