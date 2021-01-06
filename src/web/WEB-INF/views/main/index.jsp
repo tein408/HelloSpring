@@ -6,7 +6,7 @@
 <body>
     <h1>index.jsp page</h1>
 <%
-    response.sendRedirect("index.do");
+    response.sendRedirect("/main/index.do");
 %>
 
 </body>
