@@ -1,11 +1,12 @@
 package controller;
 
 import model.MemberBean;
-import model.ShoppingDAO;
 import model.SuBean;
+import model.SuCartBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import service.ShoppingService;
 
@@ -68,6 +69,23 @@ public class ShoppingController {
         mav.setViewName("/SuMenu/ShoppingMain");
         return mav;
     }//info
+
+    @RequestMapping(value = "/SuMenu/sutoolcart.do", method = RequestMethod.GET)
+    public ModelAndView sutoolcart(SuCartBean cartBean, HttpSession session){
+        ModelAndView mav = new ModelAndView();
+        Cart cart = (Cart) session.getAttribute("cart");
+        if(cart == null){
+            cart = new Cart();
+            session.setAttribute("cart",cart);
+        }
+        cart.push(cartBean);
+        mav.addObject("msg", cartBean.getName()+" 제품 "+cartBean.getOptid()+"개 장바구니에 담음");
+        mav.addObject("cart",cart);
+        mav.addObject("center","SuCartResult.jsp");
+        mav.addObject("left","Suleft.jsp");
+        mav.setViewName("/SuMenu/ShoppingMain");
+        return mav;
+    }//sutoolcart()
 
 
 
