@@ -31,4 +31,9 @@ public class ShoppingService {
     public int getLogin(MemberBean memberBean) {
         return shoppingDAO.getLogin(memberBean);
     }
-}
+
+    public void insertMember(MemberBean memberBean) {
+        shoppingDAO.insertMember(memberBean);
+    }
+
+}//class
