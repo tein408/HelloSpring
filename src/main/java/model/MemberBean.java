@@ -9,7 +9,7 @@ public class MemberBean {
     private String pwd2;
     private String name;
     private String phone;
-    private Date regdate;
+    private String regdate;
 
     @Override
     public String toString() {
@@ -63,11 +63,11 @@ public class MemberBean {
         this.phone = phone;
     }
 
-    public Date getRegdate() {
+    public String getRegdate() {
         return regdate;
     }
 
-    public void setRegdate(Date regdate) {
+    public void setRegdate(String regdate) {
         this.regdate = regdate;
     }
 }//class
