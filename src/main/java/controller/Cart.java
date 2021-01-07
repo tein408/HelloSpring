@@ -36,5 +36,8 @@ public class Cart {
         }//for
     }//deleteCart
 
+    public void clearCart() {
+        itemlist.removeAll(itemlist);
+    }//clearCart()
 
 }//class
