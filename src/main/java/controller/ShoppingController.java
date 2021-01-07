@@ -165,6 +165,25 @@ public class ShoppingController {
         return new ModelAndView(new RedirectView("/main/index.do"));
     }//logout()
 
+    @RequestMapping("/SuMenu/sucartbuy.do")
+    public ModelAndView sutoolBuy(SuCartBean suCartBean, HttpSession session){
+        ModelAndView mav = new ModelAndView();
+        MemberBean memberBean = (MemberBean) session.getAttribute("memberBean");
+        if(memberBean == null){
+            mav.addObject("center","../login/loginForm.jsp");
+            mav.addObject("left","Suleft.jsp");
+            mav.setViewName("/SuMenu/ShoppingMain");
+        } else {
+            mav.addObject("suCartBean", suCartBean);
+            mav.addObject("center","SutoolBuy.jsp");
+            mav.addObject("left","Suleft.jsp");
+            mav.setViewName("/SuMenu/ShoppingMain");
+        }
+        return mav;
+    }//sutoolBuy()
+
+
+
 
 
 }//class
