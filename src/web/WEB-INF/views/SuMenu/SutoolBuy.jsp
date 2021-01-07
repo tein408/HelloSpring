@@ -24,15 +24,15 @@
                     <td>${item.price}</td>
                     <td>${item.price*item.optid}</td>
                 </tr>
+                <c:set var="total" value="${total + item.price*item.optid}"/>
             </c:forEach>
         </c:if>
-        <c:set var="total" value="${total + item.price*item.optid}"/>
         <tr>
             <td colspan="5">총 결제 금액 : ${total} 원</td>
         </tr>
         <tr>
             <td colspan="5">
-                <input type="button" onclick="location.href='cartAlldel.do'" value="계산완료하기">
+                <input type="button" onclick="location.href='/SuMenu/cartAlldel.do'" value="계산완료하기">
                 <input type="button" onclick="location.href='/main/index.do'" value="취소하기">
             </td>
         </tr>
