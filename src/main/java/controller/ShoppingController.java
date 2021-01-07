@@ -182,7 +182,12 @@ public class ShoppingController {
         return mav;
     }//sutoolBuy()
 
-
+    @RequestMapping("/SuMenu/cartAlldel.do")
+    public ModelAndView cartAlldel(HttpSession session){
+        Cart cart = (Cart) session.getAttribute("cart");
+        cart.clearCart();
+        return new ModelAndView(new RedirectView("/main/index.do"));
+    }//cartAlldel()
 
 
 
