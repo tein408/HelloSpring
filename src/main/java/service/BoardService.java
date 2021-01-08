@@ -17,5 +17,9 @@ public class BoardService {
         return boardDAO.getAllBoard();
     }//getAllBoard()
 
+    public List<BoardBean> boardInfo(int num) {
+        return boardDAO.boardInfo(num);
+    }//getAllBoard()
+
 
 }//class
