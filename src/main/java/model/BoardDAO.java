@@ -33,4 +33,22 @@ public class BoardDAO {
         return list;
     }//getAllBoard()
 
+    public List<BoardBean> boardInfo(int num) {
+        List<BoardBean> boardInfo = jdbcTemplate.query("select * from board where num=?",
+                new RowMapper<BoardBean>() {
+                    @Override
+                    public BoardBean mapRow(ResultSet resultSet, int i) throws SQLException {
+                        BoardBean boardBean = new BoardBean(
+                                resultSet.getString("writer"),
+                                resultSet.getString("email"),resultSet.getString("subject"),
+                                resultSet.getString("pwd"),resultSet.getDate("regdate"),
+                                resultSet.getInt("readcount"),resultSet.getString("content")
+                        );
+                        boardBean.setNum(resultSet.getInt("num"));
+                        return boardBean;
+                    }
+                }, num);
+        return boardInfo;
+    }//boardInfo()
+
 }//class
