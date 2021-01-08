@@ -1,7 +1,5 @@
 package model;
 
-import java.sql.Date;
-
 public class BoardBean {
 
     private int num;
@@ -9,11 +7,13 @@ public class BoardBean {
     private String email;
     private String subject;
     private String pwd;
-    private Date regdate;
+    private String regdate;
     private int readcount;
     private String content;
 
-    public BoardBean(int num, String writer, String email, String subject, String pwd, Date regdate, int readcount, String content) {
+    public BoardBean(){}
+
+    public BoardBean(int num, String writer, String email, String subject, String pwd, String regdate, int readcount, String content) {
         this.num = num;
         this.writer = writer;
         this.email = email;
@@ -24,7 +24,7 @@ public class BoardBean {
         this.content = content;
     }
 
-    public BoardBean(String writer, String email, String subject, String pwd, Date regdate, int readcount, String content) {
+    public BoardBean(String writer, String email, String subject, String pwd, String regdate, int readcount, String content) {
         this.writer = writer;
         this.email = email;
         this.subject = subject;
@@ -88,11 +88,11 @@ public class BoardBean {
         this.pwd = pwd;
     }
 
-    public Date getRegdate() {
+    public String getRegdate() {
         return regdate;
     }
 
-    public void setRegdate(Date regdate) {
+    public void setRegdate(String regdate) {
         this.regdate = regdate;
     }
 
