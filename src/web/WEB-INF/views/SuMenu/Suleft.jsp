@@ -12,11 +12,6 @@
     </tr>
     <tr>
         <td>
-            <a href="sumenu.do" style="text-decoration:none">new</a>
-        </td>
-    </tr>
-    <tr>
-        <td>
             <a href="sumenu.do?num=1" style="text-decoration:none">category 1</a>
         </td>
     </tr>

@@ -37,16 +37,7 @@
     <table>
         <tr>
             <td>
-                <a href="/SuMenu/sumenu.do">메뉴1</a>
-            </td>
-            <td>
-                <a href="menu2.do">메뉴2</a>
-            </td>
-            <td>
-                <a href="menu3.do">메뉴3</a>
-            </td>
-            <td>
-                <a href="menu4.do">메뉴4</a>
+                <a href="/SuMenu/sumenu.do">메뉴</a>
             </td>
             <td>
                 <a href="download.do">download</a>
