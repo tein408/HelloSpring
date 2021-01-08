@@ -50,6 +50,25 @@ public class BoardTest {
         ctx.close();
     }//test3()
 
+    @Test
+    public void test4() {
+        AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(ShoppingDaoConfig.class);
+        boardDAO = ctx.getBean(BoardDAO.class);
+        try {
+            BoardBean boardBean = new BoardBean();
+            boardBean.setContent("aa");
+            boardBean.setEmail("aa");
+            boardBean.setPwd("aa");
+            boardBean.setWriter("a");
+            boardBean.setSubject("aa");
+            boardDAO.boardInsert(boardBean);
+            test2();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        ctx.close();
+    }//test4()
+
 
 
 }
