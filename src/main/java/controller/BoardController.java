@@ -1,14 +1,15 @@
 package controller;
 
 import model.BoardBean;
+import model.MemberBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.view.RedirectView;
 import service.BoardService;
 
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @Controller
@@ -47,11 +48,18 @@ public class BoardController {
     }
 
     @RequestMapping("/boardWrite.do")
-    public ModelAndView boardWrite(){
+    public ModelAndView boardWrite(HttpSession session){
         ModelAndView mav = new ModelAndView();
-        mav.addObject("center","../board/boardWrite.jsp");
-        mav.addObject("left","../board/boardLeft.jsp");
-        mav.setViewName("/SuMenu/ShoppingMain");
+        MemberBean memberBean = (MemberBean) session.getAttribute("memberBean");
+        if(memberBean == null){
+            mav.addObject("center","../login/loginForm.jsp");
+            mav.addObject("left","../board/boardLeft.jsp");
+            mav.setViewName("/SuMenu/ShoppingMain");
+        } else {
+            mav.addObject("center", "../board/boardWrite.jsp");
+            mav.addObject("left", "../board/boardLeft.jsp");
+            mav.setViewName("/SuMenu/ShoppingMain");
+        }
         return mav;
     }
 
