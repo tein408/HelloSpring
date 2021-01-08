@@ -43,7 +43,7 @@
                 <a href="download.do">download</a>
             </td>
             <td>
-                <a href="board.do">customer center</a>
+                <a href="/board/board.do">customer center</a>
             </td>
         </tr>
     </table>
