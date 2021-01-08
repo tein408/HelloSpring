@@ -1,10 +1,10 @@
 package controller;
 
 import model.BoardBean;
-import model.SuBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import service.BoardService;
 
@@ -27,6 +27,19 @@ public class BoardController {
         List<BoardBean> list = boardService.getAllBoard();
         mav.addObject("list",list);
         mav.addObject("center","../board/boardList.jsp");
+        mav.addObject("left","../board/boardLeft.jsp");
+        mav.setViewName("/SuMenu/ShoppingMain");
+        return mav;
+    }
+
+    @RequestMapping(value = "/boardInfo.do", method = RequestMethod.GET)
+    public ModelAndView boardInfo(int num){
+        ModelAndView mav = new ModelAndView();
+        if(num != 0){
+            List<BoardBean> boardBean = boardService.boardInfo(num);
+            mav.addObject("boardBean",boardBean);
+        }
+        mav.addObject("center","../board/boardInfo.jsp");
         mav.addObject("left","../board/boardLeft.jsp");
         mav.setViewName("/SuMenu/ShoppingMain");
         return mav;
