@@ -24,6 +24,16 @@ public class BoardBean {
         this.content = content;
     }
 
+    public BoardBean(String writer, String email, String subject, String pwd, Date regdate, int readcount, String content) {
+        this.writer = writer;
+        this.email = email;
+        this.subject = subject;
+        this.pwd = pwd;
+        this.regdate = regdate;
+        this.readcount = readcount;
+        this.content = content;
+    }
+
     @Override
     public String toString() {
         return "BoardBean{" +
