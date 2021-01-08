@@ -1,11 +1,13 @@
 package Test;
 
 import config.ShoppingDaoConfig;
+import model.BoardBean;
 import model.BoardDAO;
-import model.ShoppingDAO;
 import org.apache.log4j.Logger;
 import org.junit.Test;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
+import java.util.List;
 
 public class BoardTest {
 
@@ -23,11 +25,16 @@ public class BoardTest {
         AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(ShoppingDaoConfig.class);
         boardDAO = ctx.getBean(BoardDAO.class);
         try {
-            logger.debug(boardDAO.getAllBoard().get(0).toString());
+            List<BoardBean> list = boardDAO.getAllBoard();
+            for(BoardBean boardBean : list){
+                logger.debug(boardBean);
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }
         ctx.close();
     }//test2()
+
+
 
 }
