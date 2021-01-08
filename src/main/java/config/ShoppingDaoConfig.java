@@ -1,6 +1,7 @@
 package config;
 
 import controller.ShoppingController;
+import model.BoardDAO;
 import model.ShoppingDAO;
 import org.apache.tomcat.jdbc.pool.DataSource;
 import org.springframework.context.annotation.Bean;
@@ -29,6 +30,11 @@ public class ShoppingDaoConfig {
     @Bean
     public ShoppingService shoppingService(){
         return new ShoppingService(shoppingDAO());
+    }
+
+    @Bean
+    public BoardDAO boardDAO(){
+        return new BoardDAO(dataSource());
     }
 
 }
