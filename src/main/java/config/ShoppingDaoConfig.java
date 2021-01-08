@@ -6,6 +6,7 @@ import model.ShoppingDAO;
 import org.apache.tomcat.jdbc.pool.DataSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import service.BoardService;
 import service.ShoppingService;
 
 
@@ -35,6 +36,11 @@ public class ShoppingDaoConfig {
     @Bean
     public BoardDAO boardDAO(){
         return new BoardDAO(dataSource());
+    }
+
+    @Bean
+    public BoardService boardService(){
+        return new BoardService(boardDAO());
     }
 
 }
