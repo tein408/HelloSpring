@@ -15,7 +15,7 @@
 
     <table>
       <tr>
-        <td>
+        <td colspan="3">
           <jsp:include page="top.jsp"/>
         </td>
       </tr>
@@ -37,7 +37,7 @@
       </tr>
 
       <tr>
-        <td>
+        <td colspan="3">
           <jsp:include page="bottom.jsp"/>
         </td>
       </tr>
