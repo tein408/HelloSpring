@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.view.RedirectView;
 import service.BoardService;
 
 import java.util.List;
@@ -45,6 +46,14 @@ public class BoardController {
         return mav;
     }
 
+    @RequestMapping("/boardWrite.do")
+    public ModelAndView boardWrite(){
+        ModelAndView mav = new ModelAndView();
+        mav.addObject("center","../board/boardWrite.jsp");
+        mav.addObject("left","../board/boardLeft.jsp");
+        mav.setViewName("/SuMenu/ShoppingMain");
+        return mav;
+    }
 
 
 
