@@ -34,6 +34,7 @@ public class BoardDAO {
     }//getAllBoard()
 
     public List<BoardBean> boardInfo(int num) {
+        jdbcTemplate.update("update board set readcount=readcount+1 where num=?",num);
         List<BoardBean> boardInfo = jdbcTemplate.query("select * from board where num=?",
                 new RowMapper<BoardBean>() {
                     @Override
