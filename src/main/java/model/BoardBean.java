@@ -10,8 +10,19 @@ public class BoardBean {
     private String subject;
     private String pwd;
     private Date regdate;
-    private String readcount;
+    private int readcount;
     private String content;
+
+    public BoardBean(int num, String writer, String email, String subject, String pwd, Date regdate, int readcount, String content) {
+        this.num = num;
+        this.writer = writer;
+        this.email = email;
+        this.subject = subject;
+        this.pwd = pwd;
+        this.regdate = regdate;
+        this.readcount = readcount;
+        this.content = content;
+    }
 
     @Override
     public String toString() {
@@ -75,11 +86,11 @@ public class BoardBean {
         this.regdate = regdate;
     }
 
-    public String getReadcount() {
+    public int getReadcount() {
         return readcount;
     }
 
-    public void setReadcount(String readcount) {
+    public void setReadcount(int readcount) {
         this.readcount = readcount;
     }
 
