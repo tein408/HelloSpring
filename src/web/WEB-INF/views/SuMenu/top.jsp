@@ -20,11 +20,10 @@
         </c:if>
         <c:if test="${memberBean!=null}">
             <td>
-                <br>${memberBean.name} 님 반갑습니다.<br>
+                <br>${memberBean.id} 님 반갑습니다.<br>
                 <input type="button" onclick="location.href='../login/logout.do'" value="logout">
             </td>
         </c:if>
-
         <form action="mainsearch.do" method="post">
             <td>
                 <input type="text" name="search" size="10">
