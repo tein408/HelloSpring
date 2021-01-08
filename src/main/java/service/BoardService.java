@@ -21,5 +21,9 @@ public class BoardService {
         return boardDAO.boardInfo(num);
     }//getAllBoard()
 
+    public void boardInsert(BoardBean boardBean){
+        boardDAO.boardInsert(boardBean);
+    }
+
 
 }//class
