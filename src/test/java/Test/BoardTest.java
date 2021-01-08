@@ -35,6 +35,21 @@ public class BoardTest {
         ctx.close();
     }//test2()
 
+    @Test
+    public void test3() {
+        AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(ShoppingDaoConfig.class);
+        boardDAO = ctx.getBean(BoardDAO.class);
+        try {
+            List<BoardBean> list = boardDAO.boardInfo(1);
+            for(BoardBean boardBean : list){
+                logger.debug(boardBean);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        ctx.close();
+    }//test3()
+
 
 
 }
