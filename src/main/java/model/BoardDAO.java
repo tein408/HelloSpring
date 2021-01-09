@@ -19,7 +19,7 @@ public class BoardDAO {
     }
 
     public List<BoardBean> getAllBoard() {
-        List<BoardBean> list = jdbcTemplate.query("select * from board",
+        List<BoardBean> list = jdbcTemplate.query("select * from board order by regdate desc",
                 new RowMapper<BoardBean>() {
                     @Override
                     public BoardBean mapRow(ResultSet resultSet, int i) throws SQLException {
