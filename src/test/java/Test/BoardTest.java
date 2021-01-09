@@ -3,6 +3,7 @@ package Test;
 import config.ShoppingDaoConfig;
 import model.BoardBean;
 import model.BoardDAO;
+import model.ShoppingDAO;
 import org.apache.log4j.Logger;
 import org.junit.Test;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
@@ -68,6 +69,21 @@ public class BoardTest {
         }
         ctx.close();
     }//test4()
+
+    @Test
+    public void test5() {
+        AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(ShoppingDaoConfig.class);
+        boardDAO = ctx.getBean(BoardDAO.class);
+        try {
+            String id = "a";
+            String name = boardDAO.getUserName(id);
+            logger.debug("test---------");
+            logger.debug("name: "+name);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        ctx.close();
+    }//test5()
 
 
 
