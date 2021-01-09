@@ -7,10 +7,17 @@
 <body>
     <h2>고객게시판 글쓰기</h2>
     <form action="/board/boardWritePro.do" method="post">
+        <input type="hidden" id="writer" name="writer" value="${name}">
         <table>
             <tr>
                 <td>작성자</td>
-                <td>${memberBean.name}</td>
+                <td>${name}</td>
+            </tr>
+            <tr>
+                <td>이메일</td>
+                <td>
+                    <input type="text" id="email" name="email">
+                </td>
             </tr>
             <tr>
                 <td>비밀번호</td>
