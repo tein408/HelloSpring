@@ -2,6 +2,7 @@ package service;
 
 import model.BoardBean;
 import model.BoardDAO;
+import model.MemberBean;
 import model.SuBean;
 
 import java.util.List;
@@ -25,5 +26,8 @@ public class BoardService {
         boardDAO.boardInsert(boardBean);
     }
 
+    public String getUserName(String id){
+        return boardDAO.getUserName(id);
+    }
 
 }//class
