@@ -39,4 +39,9 @@ public class ShoppingService {
     public int getLoginPro(MemberBean memberBean) {
         return shoppingDAO.getLoginPro(memberBean);
     }
+
+    public String getUserName(MemberBean memberBean){
+        return shoppingDAO.getUserName(memberBean);
+    }
+
 }//class
