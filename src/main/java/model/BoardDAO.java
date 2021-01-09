@@ -6,6 +6,8 @@ import org.springframework.jdbc.core.RowMapper;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 public class BoardDAO {
@@ -24,7 +26,7 @@ public class BoardDAO {
                         BoardBean boardBean = new BoardBean(
                                 resultSet.getInt("num"),resultSet.getString("writer"),
                                 resultSet.getString("email"),resultSet.getString("subject"),
-                                resultSet.getString("pwd"),resultSet.getDate("regdate"),
+                                resultSet.getString("pwd"),resultSet.getString("regdate"),
                                 resultSet.getInt("readcount"),resultSet.getString("content")
                         );
                         return boardBean;
@@ -42,7 +44,7 @@ public class BoardDAO {
                         BoardBean boardBean = new BoardBean(
                                 resultSet.getString("writer"),
                                 resultSet.getString("email"),resultSet.getString("subject"),
-                                resultSet.getString("pwd"),resultSet.getDate("regdate"),
+                                resultSet.getString("pwd"),resultSet.getString("regdate"),
                                 resultSet.getInt("readcount"),resultSet.getString("content")
                         );
                         boardBean.setNum(resultSet.getInt("num"));
@@ -51,5 +53,26 @@ public class BoardDAO {
                 }, num);
         return boardInfo;
     }//boardInfo()
+
+    public void boardInsert(BoardBean boardBean){
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+        Date date = new Date(System.currentTimeMillis());
+        jdbcTemplate.update("insert into board (writer, subject, pwd, regdate, readcount, content, email)" +
+                " values (?,?,?,?,?,?,?)",
+                boardBean.getWriter(), boardBean.getSubject(),boardBean.getPwd(),
+                date, 0, boardBean.getContent(), boardBean.getEmail());
+    }//boardInsert()
+
+    public String getUserName(String id){
+        String name = "";
+        name = jdbcTemplate.queryForObject("select name from member where id=?", new RowMapper<String>() {
+            @Override
+            public String mapRow(ResultSet resultSet, int i) throws SQLException {
+                return resultSet.getString("name");
+            }
+        },id);
+        return name;
+    }//getUserName()
+
 
 }//class
