@@ -7,7 +7,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.view.RedirectView;
 import service.BoardService;
+import service.ShoppingService;
 
 import javax.servlet.http.HttpSession;
 import java.util.List;
@@ -17,6 +19,7 @@ import java.util.List;
 public class BoardController {
 
     BoardService boardService;
+    ShoppingService shoppingService;
 
     @Autowired
     public void boardService(BoardService boardService){
@@ -51,16 +54,25 @@ public class BoardController {
     public ModelAndView boardWrite(HttpSession session){
         ModelAndView mav = new ModelAndView();
         MemberBean memberBean = (MemberBean) session.getAttribute("memberBean");
+        String id = memberBean.getId();
+        String name = boardService.getUserName(id);
         if(memberBean == null){
             mav.addObject("center","../login/loginForm.jsp");
             mav.addObject("left","../board/boardLeft.jsp");
             mav.setViewName("/SuMenu/ShoppingMain");
         } else {
+            mav.addObject("name", name);
             mav.addObject("center", "../board/boardWrite.jsp");
             mav.addObject("left", "../board/boardLeft.jsp");
             mav.setViewName("/SuMenu/ShoppingMain");
         }
         return mav;
+    }
+
+    @RequestMapping("/boardWritePro.do")
+    public ModelAndView boardWritePro(BoardBean boardBean){
+        boardService.boardInsert(boardBean);
+        return new ModelAndView(new RedirectView("/board/board.do"));
     }
 
 
