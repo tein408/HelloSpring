@@ -98,15 +98,5 @@ public class ShoppingDAO {
         return count;
     }//getLoginPro
 
-    public String getUserName(String id){
-        String name = "";
-        name = jdbcTemplate.queryForObject("select name from member where id=?", new RowMapper<String>() {
-            @Override
-            public String mapRow(ResultSet resultSet, int i) throws SQLException {
-                return resultSet.getString("name");
-            }
-        },id);
-        return name;
-    }//getUserName()
 
 }//class

@@ -40,8 +40,6 @@ public class ShoppingService {
         return shoppingDAO.getLoginPro(memberBean);
     }
 
-    public String getUserName(String id){
-        return shoppingDAO.getUserName(id);
-    }
+
 
 }//class
