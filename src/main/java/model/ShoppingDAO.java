@@ -98,14 +98,14 @@ public class ShoppingDAO {
         return count;
     }//getLoginPro
 
-    public String getUserName(MemberBean memberBean){
+    public String getUserName(String id){
         String name = "";
         name = jdbcTemplate.queryForObject("select name from member where id=?", new RowMapper<String>() {
             @Override
             public String mapRow(ResultSet resultSet, int i) throws SQLException {
                 return resultSet.getString("name");
             }
-        },memberBean.getId());
+        },id);
         return name;
     }//getUserName()
 
