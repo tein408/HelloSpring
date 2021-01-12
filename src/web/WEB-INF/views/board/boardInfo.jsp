@@ -21,6 +21,10 @@
                 <td>${boardBean.regdate}</td>
             </tr>
             <tr>
+                <td colspan="2">이메일</td>
+                <td colspan="2">${boardBean.email}</td>
+            </tr>
+            <tr>
                 <td colspan="2">제목</td>
                 <td colspan="2">${boardBean.subject}</td>
             </tr>
@@ -31,7 +35,7 @@
             <tr>
                 <td colspan="2">
                     <input type="button" value="수정"
-                           onclick="location.href='boardUpdate.do?num=${boardBean.num}&subject=${boardBean.subject }&content=${boardBean.content }&writer=${boardBean.writer }'">
+                           onclick="location.href='boardUpdate.do?num=${boardBean.num}&subject=${boardBean.subject}&content=${boardBean.content}&writer=${boardBean.writer}'">
                     <input type="button" value="삭제" onclick="location.href='boardDel.do?num=${boardBean.num}'">
                     <input type="button" value="목록" onclick="location.href='/board/board.do'">
                 </td>
