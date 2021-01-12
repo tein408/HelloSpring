@@ -75,6 +75,16 @@ public class BoardController {
         return new ModelAndView(new RedirectView("/board/board.do"));
     }
 
+    @RequestMapping(value = "/boardUpdate.do", method = RequestMethod.GET)
+    public ModelAndView boardUpdate(BoardBean boardBean){
+        ModelAndView mav = new ModelAndView();
+        mav.addObject("boardBean", boardBean);
+        mav.addObject("center", "../board/boardUpdate.jsp");
+        mav.addObject("left", "../board/boardLeft.jsp");
+        mav.setViewName("/SuMenu/ShoppingMain");
+        return mav;
+    }
+
 
 
 
