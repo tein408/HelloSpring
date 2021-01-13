@@ -77,7 +77,14 @@ public class BoardDAO {
     public void boardUpdate(BoardBean boardBean){
         jdbcTemplate.update("update board set pwd=?, email=?, content=? where num=? ",
                 boardBean.getPwd(), boardBean.getEmail(), boardBean.getContent(), boardBean.getNum());
+    }//boardUpdate()
+
+    public void boardDel(BoardBean boardBean){
+        jdbcTemplate.update("delete from board where num=? and pwd=?",
+                boardBean.getNum(), boardBean.getPwd());
     }
+
+
 
 
 }//class
