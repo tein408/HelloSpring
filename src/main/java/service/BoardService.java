@@ -34,4 +34,8 @@ public class BoardService {
         boardDAO.boardUpdate(boardBean);
     }
 
+    public void boardDel(BoardBean boardBean){
+        boardDAO.boardDel(boardBean);
+    }
+
 }//class
