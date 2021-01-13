@@ -26,7 +26,7 @@ public class BoardDAO {
                         BoardBean boardBean = new BoardBean(
                                 resultSet.getInt("num"),resultSet.getString("writer"),
                                 resultSet.getString("email"),resultSet.getString("subject"),
-                                resultSet.getString("pwd"),resultSet.getString("regdate"),
+                                resultSet.getString("pwd"),resultSet.getDate("regdate"),
                                 resultSet.getInt("readcount"),resultSet.getString("content")
                         );
                         return boardBean;
@@ -44,7 +44,7 @@ public class BoardDAO {
                         BoardBean boardBean = new BoardBean(
                                 resultSet.getString("writer"),
                                 resultSet.getString("email"),resultSet.getString("subject"),
-                                resultSet.getString("pwd"),resultSet.getString("regdate"),
+                                resultSet.getString("pwd"),resultSet.getDate("regdate"),
                                 resultSet.getInt("readcount"),resultSet.getString("content")
                         );
                         boardBean.setNum(resultSet.getInt("num"));
