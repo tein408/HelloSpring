@@ -92,6 +92,16 @@ public class BoardController {
         return new ModelAndView(new RedirectView("/board/boardInfo.do?num="+boardBean.getNum()));
     }
 
+    @RequestMapping("/boardDel.do")
+    public ModelAndView boardDel(int num){
+        ModelAndView mav = new ModelAndView();
+        mav.addObject("num", num);
+        mav.addObject("center", "../board/boardDelete.jsp");
+        mav.addObject("left", "../board/boardLeft.jsp");
+        mav.setViewName("/SuMenu/ShoppingMain");
+        return mav;
+    }
+
 
 
 
