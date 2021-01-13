@@ -102,6 +102,13 @@ public class BoardController {
         return mav;
     }
 
+    @RequestMapping("/boardDelPro.do")
+    public ModelAndView boardDelPro(BoardBean boardBean){
+        boardService.boardDel(boardBean);
+        return new ModelAndView(new RedirectView("/board/board.do"));
+    }
+
+
 
 
 
