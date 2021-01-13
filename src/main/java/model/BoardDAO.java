@@ -74,5 +74,10 @@ public class BoardDAO {
         return name;
     }//getUserName()
 
+    public void boardUpdate(BoardBean boardBean){
+        jdbcTemplate.update("update board set pwd=?, email=?, content=? where num=? ",
+                boardBean.getPwd(), boardBean.getEmail(), boardBean.getContent(), boardBean.getNum());
+    }
+
 
 }//class
