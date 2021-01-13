@@ -12,6 +12,7 @@ import org.springframework.web.servlet.view.RedirectView;
 import service.ShoppingService;
 
 import javax.servlet.http.HttpSession;
+import java.io.File;
 import java.util.List;
 
 @Controller
@@ -197,6 +198,15 @@ public class ShoppingController {
         mav.setViewName("/SuMenu/ShoppingMain");
         return mav;
     }
+
+    @RequestMapping(value = "/main/downfile.do", method = RequestMethod.GET)
+    public ModelAndView downfile(int num){
+        String[] filename = {"logo.png"};
+        String path = "C:/Users/kumkang/Desktop/dev/image";
+        File downloadfile = new File(path + filename[num]);
+        return new ModelAndView("downloadView", "downloadFile", downloadfile);
+    }
+
 
 
 
