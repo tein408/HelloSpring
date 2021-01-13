@@ -30,4 +30,8 @@ public class BoardService {
         return boardDAO.getUserName(id);
     }
 
+    public void boardUpdate(BoardBean boardBean){
+        boardDAO.boardUpdate(boardBean);
+    }
+
 }//class
