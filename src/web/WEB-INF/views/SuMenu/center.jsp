@@ -6,38 +6,7 @@
 </head>
 <body>
     <div>
-        <div>
-            item1
-        </div>
-        <div>
-            item2
-        </div>
-        <div>
-            item3
-        </div>
-        <a href="#" role="button"><span>prievious</span></a>
-        <a href="#" role="button"><span>next</span></a>
+        <h2>center page</h2>
     </div>
-
-    <table>
-        <tr>
-            <td>
-                1
-            </td>
-            <td>
-                2
-            </td>
-            <td>
-                3
-            </td>
-            <td>
-                4
-            </td>
-        </tr>
-    </table>
-
-
-
-
 </body>
 </html>
