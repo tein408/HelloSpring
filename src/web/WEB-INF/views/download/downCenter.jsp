@@ -16,7 +16,7 @@
             <td>name</td>
             <td>title</td>
             <td>
-                <input type="button" value="download" onclick="location.href='downfile.do?no=1'">
+                <input type="button" value="download" onclick="location.href='downfile.do?num=0'">
             </td>
         </tr>
     </table>
