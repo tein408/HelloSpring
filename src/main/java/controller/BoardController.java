@@ -85,6 +85,13 @@ public class BoardController {
         return mav;
     }
 
+    @RequestMapping("/boardUpdatePro.do")
+    public ModelAndView boardUpdatePro(BoardBean boardBean){
+        ModelAndView mav = new ModelAndView();
+        boardService.boardUpdate(boardBean);
+        return new ModelAndView(new RedirectView("/board/boardInfo.do?num="+boardBean.getNum()));
+    }
+
 
 
 
