@@ -24,12 +24,6 @@
                 <input type="button" onclick="location.href='../login/logout.do'" value="logout">
             </td>
         </c:if>
-        <form action="mainsearch.do" method="post">
-            <td>
-                <input type="text" name="search" size="10">
-                <input type="submit" value="search">
-            </td>
-        </form>
     </table>
 
     <!--main menu-->
