@@ -189,6 +189,15 @@ public class ShoppingController {
         return new ModelAndView(new RedirectView("/main/index.do"));
     }//cartAlldel()
 
+    @RequestMapping("/main/download.do")
+    public ModelAndView download(){
+        ModelAndView mav = new ModelAndView();
+        mav.addObject("center", "../download/downCenter.jsp");
+        mav.addObject("left", "../download/downLeft.jsp");
+        mav.setViewName("/SuMenu/ShoppingMain");
+        return mav;
+    }
+
 
 
 }//class
